@@ -1,0 +1,45 @@
+/*
+.main-ttl .img-holder,
+.aside .last-projects .text-holder{
+	margin-top: expression(this.parentNode.offsetHeight > this.offsetHeight ? ((this.parentNode.offsetHeight-this.offsetHeight)/2 + "px") : "0");
+	width: auto;
+	height: 1%;
+}
+.main-ttl .img-holder{
+	float:right;
+}
+.btn-send,
+.subscript-form .btn-submit,
+.contact-form .btn-send,
+.newsletter-form .btn-submit{
+	behavior: expression(this.onmouseover = new
+	Function("this.className += ' hover'"), this.onmouseout = new
+	Function("this.className = this.className.replace(' hover','')"),
+	this.style.behavior = null);
+}
+.png-img{
+	behavior: expression((this.runtimeStyle.behavior="none")&&(this.pngSet?this.pngSet=true:(this.nodeName == "IMG" && this.src.toLowerCase().indexOf('.png')>-1?(this.runtimeStyle.backgroundImage = "none",
+	this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.src + "', sizingMethod='image')",
+	this.src = "images/transparent.gif"):(this.origBg = this.origBg? this.origBg :this.currentStyle.backgroundImage.toString().replace('url("','').replace('")',''),
+	this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.origBg + "', sizingMethod='crop')",
+	this.runtimeStyle.backgroundImage = "none")),this.pngSet=true)
+	);
+}
+.lightbox .t{
+	background:none;
+	filter:progid:dximagetransform.microsoft.alphaimageloader(src='images/bg-lightbox-t.png', sizingmethod='crop');
+}
+.lightbox .b{
+	background:none;
+	filter:progid:dximagetransform.microsoft.alphaimageloader(src='images/bg-lightbox-b.png', sizingmethod='crop');
+}
+.lightbox .c{
+	background:none;
+	filter:progid:dximagetransform.microsoft.alphaimageloader(src='images/bg-lightbox-c.png', sizingmethod='scale');
+}
+.btn-close span{
+	background:none;
+	filter:progid:dximagetransform.microsoft.alphaimageloader(src='images/btn-lightbox-close.png', sizingmethod='crop');
+}
+
+*/

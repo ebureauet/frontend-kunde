@@ -1,0 +1,124 @@
+#xsltsearch
+{
+  width:490px;
+}
+#content h3.searchResultsHeader{margin:0px;}
+.searchResults {padding:8px 0px 0px 0px !important}
+#content .searchResults .block-holder {padding:8px 0px 0px 0px;}
+#xsltsearch p strong {color:#ce103b}
+#xsltsearch_results .box {padding:0px !important}
+
+.xsltsearch_result
+{
+  min-height:150px;
+}
+
+.xsltsearch_result:hover a {
+	color:#323232;
+}
+
+  #xsltsearch_results .xsltsearch_result_title .heading
+  {
+	  cursor:pointer;
+  }
+
+  #xsltsearch_results .xsltsearch_result_title .heading h2
+  {
+    font-size:16px;
+    color:#323232;
+	text-decoration:none!important;
+  }
+
+  #xsltsearch_results .xsltsearch_result_title .heading:hover h2
+  {
+	  text-decoration:none;
+  }
+
+  #xsltsearch_results .xsltsearch_result_title .heading h2 .date
+  {
+    color:#787873 !important;
+  }
+  .xsltsearch_results
+  {
+    width:490px;
+  }
+    #xsltsearch .searchResults h3
+    {
+	  margin:8px 0 37px 0;
+      font-size:22px;
+	  line-height:24px;
+    }
+
+	#xsltsearch .searchResults h3 a:hover
+    {
+		color:#323232;
+		text-decoration:none;
+    }
+
+  .xsltsearch_summary
+  {
+    color:#fff;
+    font-style:italic;
+    font-size:12px;
+    float:left;
+    margin-top:10px;
+  }
+    .xsltsearch_summary b
+    {
+        text-transform:uppercase;
+        font-size:16px;
+        color:#fff;
+    }
+  #xsltsearch_navigation
+  {
+    text-align:center;
+    text-transform:uppercase;
+    font-size:16px;
+  }
+    #xsltsearch_navigation a, #xsltsearch_navigation b
+    {
+      text-decoration:none;
+      font-style:italic;
+    }
+    #xsltsearch_navigation #previous,#xsltsearch_navigation #next
+    {
+      text-decoration:none;
+      font-style:normal;
+    }
+#previous
+{
+    background-image:url(/images/arrow-left-h.png);
+    background-repeat:no-repeat;
+    background-position:center left;
+    padding-left:12px;
+}
+#previous.disabled
+{
+    background-image:url(/images/arrow-left.png);
+}
+#next
+{
+    background-image:url(/images/arrow-right-h.png);
+    background-repeat:no-repeat;
+    background-position:center right;
+    padding-right:12px;
+}
+#next.disabled
+{
+    background-image:url(/images/arrow-right.png);
+}
+
+#xsltsearch_navigation .disabled, #xsltsearch_navigation b
+{
+  color:#646464;
+}
+
+
+
+
+
+
+
+
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

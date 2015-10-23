@@ -75,7 +75,7 @@ gulp.task('sass-build', function() {
 
 /*
 gulp.task('scripts', function() {
-  return browserify('./src/js/main.js', { debug: true })
+  return browserify('./src/scripts/main.js', { debug: true })
     .bundle()
     .on("error", function(err) {
       notifyError(err, "JS")
@@ -83,12 +83,12 @@ gulp.task('scripts', function() {
     .pipe(source('main.min.js'))
     .pipe(buffer())
     //.pipe(uglify({compress: {pure_funcs: [ 'console.log' ]}}))
-    .pipe(gulp.dest('src/js'));
+    .pipe(gulp.dest('src/scripts'));
     //.pipe(reload({stream:true}));
 });*/
 
 gulp.task('scripts', function() {
-  return glob('./src/js/main-**.js', function(err, files) {
+  return glob('./src/scripts/main-**.js', function(err, files) {
     var tasks = files.map(function(entry) {
       return browserify({ entries: [entry] },{debug : true})
         .bundle()
@@ -106,7 +106,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('scripts-build', function() {
-  return glob('./src/js/main-**.js', function(err, files) {
+  return glob('./src/scripts/main-**.js', function(err, files) {
     var tasks = files.map(function(entry) {
       return browserify({ entries: [entry] },{debug : false})
         .bundle()
@@ -127,7 +127,7 @@ gulp.task('serve', ['sass','html'], function() {
     browserSync({
         server: "./src"
     });
-    //gulp.watch("src/js/main.js",['scripts']).on('change', reload);
+    //gulp.watch("src/scripts/main.js",['scripts']).on('change', reload);
     //gulp.watch("src/scss/*.scss", ['sass','']).on('change', reload);
     gulp.watch([
       "src/html/**/*.html",
@@ -213,7 +213,7 @@ gulp.task('img-optim', function () {
 });
 
 gulp.task('copy-assets', function(){
-  return gulp.src(['src/*.html', 'src/fonts/**', 'src/js/pkgd-**.min.js', 'src/js/assets/**', 'src/images/{,*/}*.{svg,ico}'], {base: "./src"})
+  return gulp.src(['src/*.html', 'src/fonts/**', 'src/scripts/pkgd-**.min.js', 'src/scripts/assets/**', 'src/images/{,*/}*.{svg,ico}'], {base: "./src"})
     .pipe(gulp.dest('build'));
 });
 
@@ -224,7 +224,7 @@ gulp.task('clean', function (cb) {
 gulp.task('default', function () {
   gulp.watch('./src/scss/**/{,*/}*.{scss,sass}', ['sass']);
   gulp.watch('src/html/**/*.html', ['html']);
-  gulp.watch(['src/main*.js','src/js/assets/*.js','src/js/general/*.js'], ['scripts']);
+  gulp.watch(['src/main*.js','src/scripts/assets/*.js','src/scripts/general/*.js'], ['scripts']);
 });
 
 gulp.task('build', function(callback) {

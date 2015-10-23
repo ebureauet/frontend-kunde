@@ -1,0 +1,42 @@
+div.app-download {
+  background:#a81838 url(../images/app-dl-bg.png) repeat-x top;
+  color:#fff;
+  float:left;
+  font-size:14px;
+  line-height:18px;
+  padding:15px 20px 0 20px;
+  width:195px;
+    margin: 0 0 0;
+    display:none;
+}
+div.app-download h3 {
+  color:#fff;
+  font-size:18px;
+  line-height:20px;
+  margin:0;
+  padding:0 0 13px 0;
+  text-align:center;
+  text-transform:uppercase;
+  border-bottom:1px solid #e4889c;
+  font-weight:normal;
+}
+div.app-download img.qr-code {
+  float:left;
+  margin-top:20px;
+}
+div.app-download p {
+  margin-top:18px !important;
+  /*width:115px;*/
+  text-align:center;
+  font-size:16px;
+    line-height: 22px !important;
+}
+
+
+
+
+
+
+
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
