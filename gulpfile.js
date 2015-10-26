@@ -213,7 +213,7 @@ gulp.task('img-optim', function () {
 });
 
 gulp.task('copy-assets', function(){
-  return gulp.src(['src/*.html', 'src/fonts/**', 'src/scripts/pkgd-**.min.js', 'src/scripts/assets/**', 'src/images/{,*/}*.{svg,ico}'], {base: "./src"})
+  return gulp.src(['src/*.html', 'src/fonts/**', 'src/scripts/pkgd-**.min.js', 'src/scripts/assets/**', 'src/scripts/plugins/**', 'src/images/{,*/}*.{svg,ico}'], {base: "./src"})
     .pipe(gulp.dest('build'));
 });
 
