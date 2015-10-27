@@ -1,0 +1,99 @@
+.article-content{
+  padding: 20px 0;
+  .column{
+    color: $colorGray;
+    padding-left: 10px;
+    padding-right: 10px;
+    .block{
+      display: block;
+      border-bottom: 1px solid #323232;
+      &--heading{
+        border-top: 6px solid #d7d7d2;
+        padding: 10px 0 20px;
+        color: $colorBlack;
+        h1, h2, h3{
+          margin: 0;
+          font-size: 44px;
+          p{
+            margin:0;
+          }
+        }
+      }
+      &--statement{
+        padding: 20px 0 0px;
+        p{
+          font-size: 22px;
+          line-height: 26px;
+          margin:0;
+          margin-bottom: 26px;
+        }
+      }
+      &--body{
+        padding: 20px 0 14px;
+        p{
+          font-size: 18px;
+          line-height: 22px;
+          margin:0;
+          margin-bottom: 15px;
+          span{
+            &.red{
+              color: $colorAlt;
+            }
+          }
+        }
+      }
+      &--fact{
+        border-style: none none dotted none;
+      }
+      &:last-child{
+        border-bottom: none;
+      }
+
+    }
+    &--aside{
+      .block{
+        &--fact{
+          padding: 14px 0 12px;
+          .holder{
+            h4{
+              margin: 0;
+              padding: 0 0 5px;
+              color: $colorAlt;
+              p{
+                margin: 0;
+                font-size: 16px;
+              }
+            }
+            >div{
+              p{
+                margin: 0;
+              }
+            }
+          }
+        }
+        &--generic{
+          font-size: 14px;
+          padding: 13px 0 0;
+          p{
+            margin: 0;
+          }
+        }
+        &--heading{
+          padding: 11px 0 12px 0px;
+          h1, h2, h3{
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    &--manuscript{
+
+    }
+    &--facts{
+
+    }
+    &--about{
+
+    }
+  }
+}

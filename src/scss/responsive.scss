@@ -1,14 +1,11 @@
-$colorBlack : #000;
-$colorAlt : #cc0033;
-$colorGray : #646464;
 
-
-$headHyt: 100px;
-
+@import
+  'responsive/variables';
 
 @import
   'libs/normalize',
   'libs/framework-bootstrap',
+  'libs/plugins',
   'libs/offcanvas';
 
 
@@ -16,106 +13,22 @@ $headHyt: 100px;
 body{
   color: $colorBlack;
   font-family: Georgia, "Times New Roman", serif;
+  background: url(../images/bg-body_new.gif) bottom center repeat-x;
 }
 
 a:focus, a:hover{
   text-decoration: none!important;
 }
 
-.head{
-  background-color: white;
-  height: $headHyt;
-  border-bottom: 1px solid #000;
-  .brand{
-    line-height: $headHyt;
-    height: 100%;
-    img{
-      margin: 0 10px;
-      height: $headHyt - 30 ;
-      width: auto;
-      vertical-align: middle;
-    }
-  }
-  .burger{
-    line-height: 130px;
-    height: 100%;
-    position:relative;
-    .icon{
-      $lineHyt : 6px;
-      $widDiff : 70px;
-      display: inline;
-      vertical-align: middle;
-      position:relative;
-      width: $headHyt - $widDiff;
-      height: $headHyt - $widDiff;
-      margin:0 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      span{
-        position:absolute;
-        width: 100%;
-        height: $lineHyt;
-        background-color: black;
-        border-radius: 4px;
-        transition: top 0.5s, left 0.5s, -webkit-transform 0.5s;
-        -webkit-transition: top 0.5s, left 0.5s, transform rotate 0.5s;
-        -webkit-transition-timing-function: ease-in-out; /* Safari and Chrome */
-        transition-timing-function: ease-in-out;
-        &.line-top{
-          top: 0;
-          left:0;
-          transform: rotate(0deg);
-        }
-        &.line-mid{
-          top:50%;
-          margin-top: -($lineHyt/2);
-          left:0;
-          transform: rotate(0deg);
-        }
-        &.line-bot{
-          top: ($headHyt - $widDiff) - ($lineHyt);
-          left:0;
-          transform: rotate(0deg);
-        }
-      }
-      &.open{
-        span{
-          &.line-top{
-            transform: rotate(315deg);
-            top: 50%;
-          }
-          &.line-mid{
-            transform: rotate(45deg);
-            width:$lineHyt;
-            height:$lineHyt;
-            left: 50%;
-            top:50%;
-          }
-          &.line-bot{
-            transform: rotate(-315deg);
-            top: 50%;
-          }
-        }
-      }
-    }
-  }
+
+.canvas{
+  overflow:hidden;
+
 }
 
+@import 'responsive/head';
 
-.cases{
-  padding:0px;
-  list-style: none;
-  li{
-    a{
-      text-align: center;
-      h2{
-        font-size: 24px;
-        color: $colorAlt;
-      }
-      p{
-        font-size: 18px;
-        color: $colorBlack;
-      }
-    }
-  }
-}
+@import 'responsive/cases';
+
+@import 'responsive/article-media';
+@import 'responsive/article-content';

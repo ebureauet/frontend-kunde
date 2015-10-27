@@ -123,7 +123,7 @@ gulp.task('scripts-build', function() {
   })
 });
 
-gulp.task('serve', ['sass','html'], function() {
+gulp.task('serve', ['sass','html','scripts'], function() {
     browserSync({
         server: "./src"
     });
@@ -131,8 +131,9 @@ gulp.task('serve', ['sass','html'], function() {
     //gulp.watch("src/scss/*.scss", ['sass','']).on('change', reload);
     gulp.watch([
       "src/html/**/*.html",
-      "src/scss/**/*.scss"
-    ], ['sass','html']).on('change', reload);
+      "src/scss/**/*.scss",
+      "src/scripts/**/*.js",
+    ], ['sass','html','scripts']).on('change', reload);
 });
 
 
@@ -224,7 +225,7 @@ gulp.task('clean', function (cb) {
 gulp.task('default', function () {
   gulp.watch('./src/scss/**/{,*/}*.{scss,sass}', ['sass']);
   gulp.watch('src/html/**/*.html', ['html']);
-  gulp.watch(['src/main*.js','src/scripts/assets/*.js','src/scripts/general/*.js'], ['scripts']);
+  gulp.watch(['src/main*.js','src/scripts/assets/*.js','src/scripts/general/*.js','src/scripts/lib/*.js','src/scripts/plugins/*.js'], ['scripts']);
 });
 
 gulp.task('build', function(callback) {

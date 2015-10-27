@@ -1,0 +1,102 @@
+
+.head{
+  background-color: white;
+  height: $headHyt;
+  border-bottom: 1px solid #000;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  .topbar{
+    .brand{
+      line-height: $headHyt;
+      height: $headHyt;
+      img{
+        margin: 0 10px;
+        height: $headHyt - 30 ;
+        width: auto;
+        vertical-align: middle;
+      }
+    }
+    .burger{
+      line-height: 130px;
+      height: 100%;
+      position:relative;
+      .icon{
+        $lineHyt : 6px;
+        $widDiff : 70px;
+        display: inline;
+        vertical-align: middle;
+        position:relative;
+        width: $headHyt - $widDiff;
+        height: $headHyt - $widDiff;
+        margin:0 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        span{
+          position:absolute;
+          width: 100%;
+          height: $lineHyt;
+          background-color: black;
+          border-radius: 4px;
+          transition: top  $menuAnimSpeed, left  $menuAnimSpeed, -webkit-transform  $menuAnimSpeed;
+          -webkit-transition: top  $menuAnimSpeed, left  $menuAnimSpeed, transform  $menuAnimSpeed;
+          -webkit-transition-timing-function: ease-in-out; /* Safari and Chrome */
+          transition-timing-function: ease-in-out;
+          &.line-top{
+            top: 0;
+            left:0;
+            transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+          }
+          &.line-mid{
+            top:50%;
+            margin-top: -($lineHyt/2);
+            left:0;
+            transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+          }
+          &.line-bot{
+            top: ($headHyt - $widDiff) - ($lineHyt);
+            left:0;
+            transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+          }
+        }
+        &.open{
+          span{
+            &.line-top{
+              transform: rotate(315deg);
+              -webkit-transform: rotate(315deg);
+              top: 50%;
+            }
+            &.line-mid{
+              transform: rotate(45deg);
+              -webkit-transform: rotate(45deg);
+              width:$lineHyt;
+              height:$lineHyt;
+              left: 50%;
+              top:50%;
+            }
+            &.line-bot{
+              transform: rotate(-315deg);
+              -webkit-transform: rotate(-315deg);
+              top: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .nav-menu{
+    position: absolute;
+    top:$headHyt;
+    width: 50%;
+    background-color: white;
+    z-index:10;
+    .menu{
+      list-style:none;
+      padding:0;
+    }
+  }
+}
