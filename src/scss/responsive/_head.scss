@@ -18,12 +18,10 @@
       }
     }
     .burger{
-      line-height: 130px;
-      height: 100%;
+      line-height: $headHyt;
+      height: $headHyt;
       position:relative;
       .icon{
-        $lineHyt : 6px;
-        $widDiff : 70px;
         display: inline;
         vertical-align: middle;
         position:relative;
@@ -39,8 +37,8 @@
           height: $lineHyt;
           background-color: black;
           border-radius: 4px;
-          transition: top  $menuAnimSpeed, left  $menuAnimSpeed, -webkit-transform  $menuAnimSpeed;
-          -webkit-transition: top  $menuAnimSpeed, left  $menuAnimSpeed, transform  $menuAnimSpeed;
+          transition: top  $menuAnimSpeed, left  $menuAnimSpeed, transform $menuAnimSpeed, opacity $menuAnimSpeed;
+          -webkit-transition: top  $menuAnimSpeed, left  $menuAnimSpeed, -webkit-transform $menuAnimSpeed, opacity $menuAnimSpeed;
           -webkit-transition-timing-function: ease-in-out; /* Safari and Chrome */
           transition-timing-function: ease-in-out;
           &.line-top{
@@ -53,8 +51,9 @@
             top:50%;
             margin-top: -($lineHyt/2);
             left:0;
-            transform: rotate(0deg);
-            -webkit-transform: rotate(0deg);
+            opacity:1;
+            transform: rotate(0deg), scale(1);
+            -webkit-transform: rotate(0deg),  scale(1);
           }
           &.line-bot{
             top: ($headHyt - $widDiff) - ($lineHyt);
@@ -73,10 +72,9 @@
             &.line-mid{
               transform: rotate(45deg);
               -webkit-transform: rotate(45deg);
-              width:$lineHyt;
-              height:$lineHyt;
-              left: 50%;
+              left: 0%;
               top:50%;
+              opacity:0;
             }
             &.line-bot{
               transform: rotate(-315deg);

@@ -74,12 +74,14 @@ footer {
   -webkit-transition: all $menuAnimSpeed ease-out;
        -o-transition: all $menuAnimSpeed ease-out;
           transition: all $menuAnimSpeed ease-out;
+  opacity: 0;
   &.offcanvas-right{
     transform: translateX(200%);
     -webkit-transform: translateX(200%);
     &.open{
       transform: translateX(100%);
       -webkit-transform: translateX(100%);
+      opacity: 1;
     }
   }
 

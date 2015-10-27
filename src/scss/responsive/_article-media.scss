@@ -1,11 +1,23 @@
 .article-media{
   .canvas{
+    /*
+    webkit-transition: all $menuAnimSpeed ease-out;
+         -o-transition: all $menuAnimSpeed ease-out;
+            transition: all $menuAnimSpeed ease-out;
+            */
+    overflow:hidden;
     margin:0;
     padding:0;
+    opacity:1;
     .tab-content{
       min-height:200px;
       .tab-pane{
       }
+    }
+  }
+  &.active{
+    .canvas{
+      opacity:0.4;
     }
   }
 }
