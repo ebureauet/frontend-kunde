@@ -1,5 +1,5 @@
 .article-content{
-  padding: 20px 0;
+  padding: 0 0 20px;
   .column{
     color: $colorGray;
     padding-left: 10px;
@@ -7,6 +7,20 @@
     .block{
       display: block;
       border-bottom: 1px solid #323232;
+      &--banner{
+        border-bottom: none;
+        figure{
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          position: relative;
+          margin-bottom: 20px;
+          img{
+            margin-left:50%;
+            transform: translateX(-50%);
+          }
+        }
+      }
       &--heading{
         border-top: 6px solid #d7d7d2;
         padding: 10px 0 20px;
@@ -14,6 +28,7 @@
         h1, h2, h3{
           margin: 0;
           font-size: 44px;
+          font-weight: normal;
           p{
             margin:0;
           }
@@ -39,6 +54,15 @@
             &.red{
               color: $colorAlt;
             }
+          }
+          &.BigRed{
+            font-size: 28px;
+            font-stretch: normal;
+            font-style: italic;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: 33px;
+            color: $colorAlt;
           }
         }
       }
@@ -84,6 +108,63 @@
             font-size: 18px;
           }
         }
+        &--list{
+          display:block;
+          list-style:none;
+          padding:0;
+          li{
+            font-size: 18px;
+            overflow: hidden;
+            width: 100%;
+            vertical-align: middle;
+            margin: 0 0 7px;
+            a{
+              color: #323232;
+              width: 100%;
+              line-height: 1.2;
+              background: url(../images/separator1.gif) repeat-x 0 100%;
+              float: left;
+              padding: 5px 0 13px;
+              &.active{
+                color: #cc0033;
+                text-decoration: none;
+                &.has-children{
+                  background: none;
+                  padding: 5px 0 2px;
+                }
+              }
+              &:hover{
+                color: #cc0033;
+              }
+            }
+            >ul{
+              clear: both;
+              list-style: none;
+              overflow: hidden;
+              height: 1%;
+              background: url(../images/separator1.gif) repeat-x 0 100%;
+              margin: 0;
+              padding: 2px 0 9px;
+              li{
+                font-size: 16px;
+                margin: 0 0 2px 17px;
+                padding: 0;
+                a{
+                  width: 199px;
+                  font-size: 16px;
+                  color: #646464;
+                  background: url(../images/bull-1.gif) no-repeat 0 12px;
+                  margin: 0;
+                  padding: 3px 0 3px 16px !important;
+                  &.active, &:hover{
+                    color: #cc0033;
+                    background: url(../images/bull.gif) no-repeat 0 12px;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
     &--manuscript{
@@ -93,6 +174,9 @@
 
     }
     &--about{
+
+    }
+    &--sidelist{
 
     }
   }

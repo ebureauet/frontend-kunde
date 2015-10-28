@@ -11,7 +11,7 @@
       line-height: $headHyt;
       height: $headHyt;
       img{
-        margin: 0 10px;
+        margin: 0 15px;
         height: $headHyt - 30 ;
         width: auto;
         vertical-align: middle;
@@ -27,7 +27,7 @@
         position:relative;
         width: $headHyt - $widDiff;
         height: $headHyt - $widDiff;
-        margin:0 10px;
+        margin:0 15px;
         top: 50%;
         transform: translateY(-50%);
         -webkit-transform: translateY(-50%);
@@ -90,11 +90,65 @@
     position: absolute;
     top:$headHyt;
     width: 50%;
-    background-color: white;
-    z-index:10;
+    z-index:0;
     .menu{
       list-style:none;
-      padding:0;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      li{
+        font-size: 18px;
+        overflow: hidden;
+        width: 100%;
+        vertical-align: middle;
+        margin: 0 0 7px;
+        a{
+          color: #323232;
+          width: 100%;
+          line-height: 1.2;
+          background: url(../images/separator1.gif) repeat-x 0 100%;
+          float: left;
+          padding: 5px 0 13px;
+          &.active{
+            color: #cc0033;
+            text-decoration: none;
+            &.has-children{
+              background: none;
+              padding: 5px 0 2px;
+            }
+          }
+          &:hover{
+            color: #cc0033;
+          }
+        }
+        >ul{
+          clear: both;
+          list-style: none;
+          overflow: hidden;
+          height: 1%;
+          background: url(../images/separator1.gif) repeat-x 0 100%;
+          margin: 0;
+          padding: 2px 0 9px;
+          li{
+            font-size: 16px;
+            margin: 0 0 2px 17px;
+            padding: 0;
+            a{
+              width: 199px;
+              font-size: 16px;
+              color: #646464;
+              background: url(../images/bull-1.gif) no-repeat 0 12px;
+              margin: 0;
+              padding: 3px 0 3px 16px !important;
+              &.active, &:hover{
+                color: #cc0033;
+                background: url(../images/bull.gif) no-repeat 0 12px;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

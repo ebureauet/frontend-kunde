@@ -22,6 +22,7 @@
     "bootstrap-sass-official": "~3.3.4"
   },
   "devDependencies": {
-    "breakpoint-sass": "~2.5.0"
+    "breakpoint-sass": "~2.5.0",
+    "magnific-popup": "~1.0.0"
   }
 }
