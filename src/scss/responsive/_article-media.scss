@@ -54,38 +54,67 @@
           .owl-nav{
             display:none;
           }
-          .owl-stage{
-            .owl-item{
-              figure{
-                position:relative;
-                a{
-                  &.video-play{
-                    position:absolute;
-                    width:50px;
-                    height:50px;
-                    background-image: url(../images/video_play_button-red.png);
-                    top:50%;
-                    left:50%;
-                    margin-left: -25px;
-                    margin-top: -25px;
-                  }
+          .owl-stage-outer{
+            .owl-stage{
+              .owl-item{
+                img{
+                  height: auto;
                 }
-                /*
-                .video-wrapper {
-                  position: relative;
-                  padding-bottom: 56.25%;
-                  padding-top: 25px;
-                  height: 0;
-                  margin: 20px 0px;
-                  iframe{
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
+                figure{
+                  position:relative;
+                  &.vid-youtube{
+                    .video-wrapper{
+                      &:before{
+                        content:"";
+                        position: absolute;
+                        width: 100%;
+                        height: 40%;
+                        top: 0px;
+                        left: 0px;
+                        opacity:0;
+                        z-index: 1;
+                      }
+                      &:after{
+                        content:"";
+                        position: absolute;
+                        width: 100%;
+                        height: 40%;
+                        bottom: 0%;
+                        left: 0px;
+                        opacity:0;
+                        z-index: 1;
+                      }
+                    }
                   }
+                  a{
+                    &.video-play{
+                      position:absolute;
+                      width:50px;
+                      height:50px;
+                      background-image: url(../images/video_play_button-red.png);
+                      top:50%;
+                      left:50%;
+                      margin-left: -25px;
+                      margin-top: -25px;
+                    }
+                  }
+                  /*
+                  .video-wrapper {
+                    position: relative;
+                    padding-bottom: 56.25%;
+                    padding-top: 25px;
+                    height: 0;
+                    margin: 20px 0px;
+                    iframe{
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                    }
+                  }
+                  */
                 }
-                */
               }
             }
           }

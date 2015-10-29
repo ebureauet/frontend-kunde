@@ -1,10 +1,35 @@
 $(document).ready(function(){
 
   if ($('.cases').length) {
-    $('.cases').owlCarousel({
-      items : 1,
-      center: true
+    var obj = $('.cases'),
+      txtPrev = obj.data("text-prev"),
+      txtNext = obj.data("text-next"),
+      changeNumRange = function(e){
+        $(e.target).siblings('.owl-panel').find('.ind').text(e.item.index+1);
+        $(e.target).siblings('.owl-panel').find('.tot').text(e.item.count);
+      };
+
+    $('.cases').each(function(){
+      var o = $(this), txtName = o.data("text-title");
+      o.parent().prepend('<div class="owl-panel"><div class="range"><span class="ind"></span>/<span class="tot"></span></div>');
+      o.parent().append('<div class="owl-panel"><div class="range"><span class="ind"></span>/<span class="tot"></span></div>');
     });
+
+    obj.owlCarousel({
+      items : 1,
+      center: true,
+      video: true,
+      onInitialized: function(e){
+        changeNumRange(e);
+      },
+      onDragged: function(e){
+        changeNumRange(e);
+      },
+      onChanged: function(e){
+
+      }
+    });
+
   }
 
   if ($('.media-slides').length) {
@@ -13,11 +38,8 @@ $(document).ready(function(){
       txtPrev = obj.data("text-prev"),
       txtNext = obj.data("text-next"),
       changeNumRange = function(e){
-        //n = console.log(e.target);
         $(e.target.nextElementSibling).find('.ind').text(e.item.index+1);
         $(e.target.nextElementSibling).find('.tot').text(e.item.count);
-        //$(this).parent().find('.owl-range .ind').text(e.item.index+1);
-        //$(this).parent().find('.owl-range .tot').text(e.item.count);
       };
 
     $('.media-slides').each(function(){
@@ -37,6 +59,11 @@ $(document).ready(function(){
       },
       onDragged: function(e){
         changeNumRange(e);
+      },
+      onChange: function(e){
+        $(e.target).find(".active .embed-yt").each(function(){
+          $(this)[0].src = $(this)[0].src.replace("&autoplay=0","&autoplay=0");
+        });
       }
     });
 
@@ -60,20 +87,39 @@ $(document).ready(function(){
         // this - is Magnific Popup object
       },
       close: function() {
+        $('iframe.vid-yt').each(function(){
+          $(this)[0].src = $(this)[0].src.replace("&autoplay=1","&autoplay=0");
+        });
+      }
+    }
+  });
+
+  $('.video-popup-trigger-alt').on('click', function(ev) {
+    var vId = $(this).data("video-id");
+    $("."+vId)[0].src = $("."+vId)[0].src.replace("&autoplay=0","&autoplay=1");
+    ev.preventDefault();
+  });
+
+  var ttt = $('.video-popup-trigger-alt2').magnificPopup({
+    items: {
+        src: '<div id="thevideo" class="white-popup"><div class="video-wrapper">'+
+            '<iframe width="420" height="315" src="https://www.youtube.com/embed/'+$(this).data("video-id")+'?autoplay=0&rel=0&showinfo=0&controls=0;" frameborder="0" allowfullscreen=""></iframe>'+
+          '</div></div>',
+        type: 'inline'
+    },
+    closeBtnInside: true,
+    callbacks: {
+      open: function() {
+        // Will fire when this exact popup is opened
+        // this - is Magnific Popup object
+        var magnificPopup = $.magnificPopup.instance;
+      },
+      close: function() {
         // Will fire when popup is closed
       }
     }
   });
 
-  $('.video-popup-trigger-alt2').magnificPopup({
-    items: {
-        src: '<div id="thevideo" class="white-popup"><div class="video-wrapper">'+
-            '<iframe width="420" height="315" src="https://www.youtube.com/embed/uFIn4eJ_4hY?autoplay=1&rel=0&showinfo=0&controls=0;" frameborder="0" allowfullscreen=""></iframe>'+
-          '</div></div>',
-        type: 'inline'
-    },
-    closeBtnInside: true
-  });
 
   $('.video-popup-trigger').magnificPopup({
 		disableOn: 700,
@@ -117,4 +163,6 @@ $(document).ready(function(){
 		  srcAction: 'iframe_src', // Templating object key. First part defines CSS selector, second attribute. "iframe_src" means: find "iframe" and set attribute "src".
 		}
 	});
+
+
 });

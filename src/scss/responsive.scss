@@ -2,12 +2,15 @@
 @import
   'responsive/variables';
 
-@import
-  'mixins/getsprite';
+
 
 @import
   'libs/normalize',
-  'libs/framework-bootstrap',
+  'libs/framework-bootstrap';
+
+@import
+  'mixins/getsprite',
+  'mixins/respond-to',
   'libs/plugins',
   'libs/offcanvas';
 

@@ -20,6 +20,14 @@
             transform: translateX(-50%);
           }
         }
+        @include respond-to(desktop){
+          figure{
+            img{
+              width:100%;
+              height:auto;
+            }
+          }
+        }
       }
       &--heading{
         border-top: 6px solid #d7d7d2;
