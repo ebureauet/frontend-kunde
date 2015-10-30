@@ -1,6 +1,7 @@
 .article-media{
   padding: 0 0 20px;
   .sidepane{
+    overflow-y: scroll;
     h2{
       margin-top:0;
       font-stretch: normal;
@@ -10,7 +11,8 @@
         color: $colorAlt;
         font-size: 24px;
         display:block;
-        line-height:1.5;
+        line-height:1;
+        margin-bottom:0.1em;
       }
       .title-sub{
         color: $colorBlack;
@@ -18,13 +20,21 @@
         line-height:1;
         display:block;
       }
+      @include respond-to(phones){
+        .title-main{
+          font-size: 18px;
+        }
+        .title-sub{
+          font-size: 16px;
+        }
+      }
     }
     .category-items{
       list-style: none;
       padding:0;
       li{
-        font-size: 16px;
-        line-height: 28px;
+        font-size: 14px;
+        line-height: 26px;
         a{
           color: $colorAlt;
           background: url(../images/bull.gif) no-repeat 0 8px;
@@ -62,6 +72,7 @@
                 }
                 figure{
                   position:relative;
+                  background-size: contain;
                   &.vid-youtube{
                     .video-wrapper{
                       &:before{
@@ -85,6 +96,33 @@
                         z-index: 1;
                       }
                     }
+                  }
+                  &.vid-vimeo{
+                    .video-wrapper{
+                      &:before{
+                        content:"";
+                        position: absolute;
+                        width: 80%;
+                        height: 40%;
+                        top: 0px;
+                        left: 0px;
+                        opacity:0;
+                        z-index: 1;
+                      }
+                      &:after{
+                        content:"";
+                        position: absolute;
+                        width: 80%;
+                        height: 40%;
+                        bottom: 0%;
+                        right: 0px;
+                        opacity: 0;
+                        z-index: 1;
+                      }
+                    }
+                  }
+                  img{
+                    visibility:hidden;
                   }
                   a{
                     &.video-play{
@@ -159,7 +197,7 @@
   padding-bottom: 56.25%;
   padding-top: 25px;
   height: 0;
-  margin: 20px 0px;
+  margin: 0px 0px;
   iframe{
     position: absolute;
     top: 0;

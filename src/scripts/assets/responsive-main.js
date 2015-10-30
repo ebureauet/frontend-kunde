@@ -1,18 +1,52 @@
-$(document).ready(function(){
+function mediaAreaHyt(){
+  if ($('#article-media').length){
+    /*
+    var mxht = 0, ht;
+    $('#article-media > div').each(function(){
+      ht = $(this).height();
+      mxht = Math.max(ht,mxht);
+      $(this).height(mxht);
+    });
+    */
+    var ht;
+    ht = $('#article-media > .canvas').height();
+    $('#article-media > .sidepane').height(ht);
+  }
+};
 
+$(window).load(function(){
+  mediaAreaHyt();
+});
+
+$(document).ready(function(){
+  mediaAreaHyt();
   if ($('.cases').length) {
     var obj = $('.cases'),
       txtPrev = obj.data("text-prev"),
       txtNext = obj.data("text-next"),
       changeNumRange = function(e){
-        $(e.target).siblings('.owl-panel').find('.ind').text(e.item.index+1);
-        $(e.target).siblings('.owl-panel').find('.tot').text(e.item.count);
+        var n,c;
+        n = e.item.index+1;
+        c = e.item.count;
+        $(e.target).siblings('.owl-panel').find('.ind').text(n);
+        $(e.target).siblings('.owl-panel').find('.tot').text(c);
+        if (n == c){
+          $('.cases-page-next').addClass('inactive');
+        }else{
+          $('.cases-page-next').removeClass('inactive');
+        }
+        if (n == 1){
+          $('.cases-page-prev').addClass('inactive');
+        }else{
+          $('.cases-page-prev').removeClass('inactive');
+        }
+
       };
 
     $('.cases').each(function(){
       var o = $(this), txtName = o.data("text-title");
-      o.parent().prepend('<div class="owl-panel"><div class="range"><span class="ind"></span>/<span class="tot"></span></div>');
-      o.parent().append('<div class="owl-panel"><div class="range"><span class="ind"></span>/<span class="tot"></span></div>');
+      o.parent().prepend('<div class="owl-panel"><div class="range"><span class="cases-page-arrow cases-page-prev inactive"></span><span class="ind"></span>/<span class="tot"></span><span class="cases-page-arrow cases-page-next"></span></div></div>');
+      o.parent().append('<div class="owl-panel"><div class="range"><span class="cases-page-arrow cases-page-prev inactive"></span><span class="ind"></span>/<span class="tot"></span><span class="cases-page-arrow cases-page-next"></span></div></div>');
     });
 
     obj.owlCarousel({
@@ -26,9 +60,18 @@ $(document).ready(function(){
         changeNumRange(e);
       },
       onChanged: function(e){
-
+        changeNumRange(e);
       }
     });
+
+    $('.cases-page-prev').on("click", function(){
+      obj.trigger('prev.owl.carousel');
+    });
+
+    $('.cases-page-next').on("click", function(){
+      obj.trigger('next.owl.carousel');
+    });
+
 
   }
 
@@ -53,6 +96,7 @@ $(document).ready(function(){
       center: true,
       autoHeight: true,
       nav: true,
+      lazyLoad:true,
       navText: [txtPrev+'<span></span>',txtNext+'<span></span>'],
       onInitialized: function(e){
         changeNumRange(e);
@@ -61,8 +105,24 @@ $(document).ready(function(){
         changeNumRange(e);
       },
       onChange: function(e){
-        $(e.target).find(".active .embed-yt").each(function(){
-          $(this)[0].src = $(this)[0].src.replace("&autoplay=0","&autoplay=0");
+        $(e.target).find(".active").each(function(){
+          $(this).find(".video").each(function(){
+            if ($(this).hasClass("vid-html5")){
+              $(this).find('video').get(0).pause();
+            }
+            else{
+              var v = $(this).find('.embed').each(function(){
+                if ( $(this).hasClass('embed-yt') ){
+                  $(this)[0].src = $(this)[0].src.replace("&autoplay=0","&autoplay=0");
+                }else{
+                  $(this)[0].src = $(this)[0].src.replace("&autoplay=0","&autoplay=0");
+
+                }
+
+              });
+            }
+          })
+
         });
       }
     });
@@ -73,6 +133,7 @@ $(document).ready(function(){
         $(this).closest('#article-media').toggleClass('active');
         $('#article-media .category-items li a').removeClass('active');
         $(this).addClass('active');
+        mediaAreaHyt();
       });
     }
 

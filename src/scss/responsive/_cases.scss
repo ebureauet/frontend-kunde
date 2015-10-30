@@ -16,7 +16,7 @@
     margin-left:0!important;
     margin-right:0!important;
     .owl-panel{
-      font-size: 18px;
+      font-size: 20px;
       height: 24px;
       line-height: 24px;
       width:100%;
@@ -26,7 +26,30 @@
         height:100%;
         top:0;
         right:0;
-      
+        cursor:pointer;
+        .cases-page-arrow{
+          line-height: 24px;
+          height: 24px;
+          cursor:pointer;
+          color: $colorAlt;
+          &.cases-page-prev{
+            margin-right: 10px;
+            &:after{
+              content:"\25C4";
+              vertical-align: middle;
+            }
+          }
+          &.cases-page-next{
+            margin-left: 10px;
+            &:after{
+              content:"\25BA";
+              vertical-align: middle;
+            }
+          }
+          &.inactive{
+            color: $colorGray;
+          }
+        }
       }
     }
     .cases{
