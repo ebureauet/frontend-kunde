@@ -37,11 +37,20 @@
         line-height: 26px;
         a{
           color: $colorAlt;
-          background: url(../images/bull.gif) no-repeat 0 8px;
-          padding: 0 0 0 15px;
+          background: url(../images/bull.gif) no-repeat 0 10px;
+          padding: 0 0 0 0px;
+          display:block;
           &.active{
             color: #666666;
-            background: url(../images/bull-1.gif) no-repeat 0 8px;
+            background: url(../images/bull-1.gif) no-repeat 0 10px!important;
+          }
+          span{
+            display: inline-block;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin-left: 15px;
+            line-height: 20px;
+            padding: 3px 0px;
           }
         }
       }
